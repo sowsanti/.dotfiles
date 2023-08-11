@@ -23,6 +23,9 @@ end, { desc = "[S]earch [K]eymap" })
 vim.keymap.set("n", "<leader>st", function()
 	require("telescope.builtin").filetypes(require("telescope.themes").get_dropdown())
 end, { desc = "[S]earch file[T]ypes" })
+-- FTerm
+vim.keymap.set("n", "<leader>tf", ":lua require('FTerm').toggle()<CR>", {noremap=true, desc = "[T]oggle [F]term"})
+vim.keymap.set("t", "<leader>tf", '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', {noremap=true, desc = "[T]oggle [F]term"})
 
 -- do not copy to register
 vim.keymap.set("n", "x", '"_x')
