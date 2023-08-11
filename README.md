@@ -15,6 +15,7 @@ This means the command`dotfiles` can be used in any directory to interact with t
 Basically, it's like the git command but it sets up the work-tree and the actual place of the git directory.
 
 Also, this next line is convenient to hide untracked files from the `git status` command (now `dotfiles status`)
+<br>
 `dotfiles config status.showUntrackedFiles no`
 
 ## TODOs
