@@ -6,6 +6,6 @@ function fish_greeting
 end
 
 # aliases
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME/.config"
 alias v="nvim"
 alias vc="env GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME/.config nvim $HOME/.config"
