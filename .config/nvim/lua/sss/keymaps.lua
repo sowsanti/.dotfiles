@@ -2,7 +2,9 @@ vim.keymap.set("n", "<leader>fv", "<cmd>Ex<cr>", { desc = "Open file explorer" }
 vim.keymap.set("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "Clear highlights" })
 vim.keymap.set("n", "<leader>s|", "<c-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>s-", "<c-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>sx", "<c-w>c", { desc = "Close split" })
 vim.keymap.set("n", "<leader>sm", "<cmd>MaximizerToggle<cr>", { desc = "Maximize current spli" })
+-- theme toggle
 vim.keymap.set("n", "<leader>tt", function()
 	print(vim.api.nvim_get_option("background"))
 	if vim.api.nvim_get_option("background") == "dark" then
@@ -11,10 +13,10 @@ vim.keymap.set("n", "<leader>tt", function()
 		vim.opt.background = "dark"
 	end
 end, { desc = "[T]heme [T]oggle (dark/light)" })
+-- telescope pickers
 vim.keymap.set("n", "<leader>tp", function()
 	require("telescope.builtin").colorscheme(require("telescope.themes").get_dropdown())
 end, { desc = "[T]theme [P]icker" })
-
 vim.keymap.set("n", "<leader>sk", function()
 	require("telescope.builtin").keymaps()
 end, { desc = "[S]earch [K]eymap" })
