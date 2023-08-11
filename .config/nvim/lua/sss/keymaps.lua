@@ -47,3 +47,6 @@ vim.keymap.set("n", "<del>", '"_x')
 
 -- unmap keys
 vim.keymap.set("n", "<f3>", "<nop>")
+
+-- remap :W to write file
+vim.cmd("command! -nargs=0 W :w")
