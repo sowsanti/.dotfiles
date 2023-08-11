@@ -23,9 +23,23 @@ end, { desc = "[S]earch [K]eymap" })
 vim.keymap.set("n", "<leader>st", function()
 	require("telescope.builtin").filetypes(require("telescope.themes").get_dropdown())
 end, { desc = "[S]earch file[T]ypes" })
+vim.keymap.set("n", "<leader>sc", function()
+	require("telescope.builtin").find_files({
+		prompt_title = "dotfiles",
+		hidden = true,
+	})
+end, { desc = "[S]earch [C]onfigs (dotfiles)" })
+-- fugitive
+vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<cr>", { desc = "[G]it [D]iff" })
+vim.keymap.set("n", "<leader>gs", "<cmd>Git status<cr>", { desc = "[G]it [S]tatus" })
 -- FTerm
-vim.keymap.set("n", "<leader>tf", ":lua require('FTerm').toggle()<CR>", {noremap=true, desc = "[T]oggle [F]term"})
-vim.keymap.set("t", "<leader>tf", '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', {noremap=true, desc = "[T]oggle [F]term"})
+vim.keymap.set("n", "<leader>tf", ":lua require('FTerm').toggle()<CR>", { noremap = true, desc = "[T]oggle [F]term" })
+vim.keymap.set(
+	"t",
+	"<leader>tf",
+	'<C-\\><C-n>:lua require("FTerm").toggle()<CR>',
+	{ noremap = true, desc = "[T]oggle [F]term" }
+)
 
 -- do not copy to register
 vim.keymap.set("n", "x", '"_x')
