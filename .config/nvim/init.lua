@@ -270,6 +270,7 @@ require("lazy").setup({
 			})
 		end,
 	},
+	"ThePrimeagen/harpoon",
 }, {})
 
 -- [[ Setting options ]]
@@ -420,13 +421,7 @@ require("nvim-treesitter.configs").setup({
 			},
 		},
 		swap = {
-			enable = true,
-			swap_next = {
-				["<leader>a"] = "@parameter.inner",
-			},
-			swap_previous = {
-				["<leader>A"] = "@parameter.inner",
-			},
+			enable = false,
 		},
 	},
 })
@@ -509,10 +504,6 @@ local servers = {
 -- Setup neovim lua configuration
 require("neodev").setup()
 
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
 -- Ensure the servers above are installed
 local mason_lspconfig = require("mason-lspconfig")
 
@@ -531,80 +522,10 @@ mason_lspconfig.setup_handlers({
 	end,
 })
 
--- [[ Configure nvim-cmp ]]
--- See `:help cmp`
-local cmp = require("cmp")
-local luasnip = require("luasnip")
-local lspkind = require("lspkind")
-require("luasnip.loaders.from_vscode").lazy_load()
-luasnip.config.setup({})
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body)
-		end,
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-h>"] = cmp.mapping.scroll_docs(-4),
-		["<C-n>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete({}),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = false,
-		}),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expand_or_locally_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.locally_jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-	}),
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "buffer" },
-		{ name = "path" },
-	},
-	formatting = {
-		format = lspkind.cmp_format({
-			with_text = true,
-			menu = {
-				nvim_lsp = "[LSP]",
-				nvim_lua = "[api]",
-				luasnip = "[snip]",
-				buffer = "[buf]",
-				path = "[path]",
-			},
-
-			-- The function below will be called before any actual modifications from lspkind
-			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-			before = function(entry, vim_item)
-				return vim_item
-			end,
-		}),
-	},
-})
-
 require("sss.globals")
 require("sss.options")
 require("sss.keymaps")
-require("sss.plugins.autopairs")
-require("sss.plugins.null-ls")
+require("sss.plugins")
 vim.cmd.colorscheme("kanagawa")
 require("colorizer").setup()
 vim.opt.tabstop = 2
