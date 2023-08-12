@@ -29,6 +29,7 @@ vim.keymap.set("n", "<leader>sc", function()
 		hidden = true,
 	})
 end, { desc = "[S]earch [C]onfigs (dotfiles)" })
+vim.keymap.set("n", "<leader>cd", require("telescope.builtin").diagnostics, { desc = "[C]ode [D]iagnostics" })
 -- fugitive
 vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<cr>", { desc = "[G]it [D]iff" })
 vim.keymap.set("n", "<leader>gs", "<cmd>Git status<cr>", { desc = "[G]it [S]tatus" })
