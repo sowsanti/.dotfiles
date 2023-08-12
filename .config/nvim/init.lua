@@ -526,7 +526,7 @@ require("sss.globals")
 require("sss.options")
 require("sss.keymaps")
 require("sss.plugins")
-vim.cmd.colorscheme("kanagawa")
+require("sss.colors")
 require("colorizer").setup()
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2

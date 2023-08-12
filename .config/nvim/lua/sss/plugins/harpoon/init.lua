@@ -4,9 +4,14 @@ if not harpoon_status then
 end
 
 harpoon.setup({
-	tabline = true,
-	tabline_prefix = "   ",
-	tabline_suffix = "   ",
+	tabline = false,
+})
+
+require("sss.plugins.harpoon.custom-tabline").setup({
+	tabline_prefix = "%#HarpoonActive#|",
+	tabline_suffix = "%#HarpoonActive# |",
+	tabline_prefix_inactive = "%#HarpoonInactive#|",
+	tabline_suffix_inactive = "%#HarpoonInactive# |",
 })
 
 local harpoon_mark_status, harpoon_mark = pcall(require, "harpoon.mark")
