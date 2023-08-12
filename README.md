@@ -11,12 +11,14 @@ Also, add a alias to the shell to use this repo, something like:
 `alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"`<br>
 **bash:** TODO
 <br>
-This means the command`dotfiles`can be used in any directory to interact with the dotfiles git repo.
+This means the command `dotfiles` can be used in any directory to interact with the dotfiles git repo.
 Basically, it's like the git command but it sets up the work-tree and the actual place of the git directory.
+<br>
 <br>
 Finaly, execute this command to set the worktree of the bare repo to the home directory.
 Thats, for now, the solution I found to fix many git plugins issues with the bare repo.
-<br>`dotfiles config core.worktree $HOME`
+<br>
+`dotfiles config core.worktree $HOME`
 
 Also, this next line is convenient to hide untracked files from the `git status` command (now `dotfiles status`)
 <br>
