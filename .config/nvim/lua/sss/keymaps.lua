@@ -27,6 +27,7 @@ vim.keymap.set("n", "<leader>sc", function()
 	require("telescope.builtin").find_files({
 		prompt_title = "dotfiles",
 		hidden = true,
+		cwd = "~/.config",
 	})
 end, { desc = "[S]earch [C]onfigs (dotfiles)" })
 vim.keymap.set("n", "<leader>cd", require("telescope.builtin").diagnostics, { desc = "[C]ode [D]iagnostics" })
