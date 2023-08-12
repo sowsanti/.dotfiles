@@ -14,6 +14,12 @@ Also, add a alias to the shell to use this repo, something like:
 This means the command `dotfiles` can be used in any directory to interact with the dotfiles git repo.
 Basically, it's like the git command but it sets up the work-tree and the actual place of the git directory.
 <br>
+The next alias is used to open the config files with a correct git worktree for plugins like fugitive.
+<br>
+**fish:**
+`alias vc="env GIT_DIR=$HOME/dotfiles GIT_WORK_TREE=$HOME nvim $HOME/.config"`<br>
+**bash:** TODO
+<br>
 <br>
 Finaly, execute this command to set the worktree of the bare repo to the home directory.
 Thats, for now, the solution I found to fix many git plugins issues with the bare repo.
