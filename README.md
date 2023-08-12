@@ -19,6 +19,7 @@ Thats, for now, the solution I found to fix many git plugins issues with the bar
 <br>`dotfiles config core.worktree $HOME`
 
 Also, this next line is convenient to hide untracked files from the `git status` command (now `dotfiles status`)
+<br>
 `dotfiles config status.showUntrackedFiles no`
 
 ## TODOs
