@@ -17,14 +17,14 @@ kanagawa.setup({
 			TelescopePreviewNormal = { bg = theme.ui.bg_dim },
 			TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
 			-- tabline
-			TablineFill = { bg = theme.diff.change },
+			TablineFill = { bg = theme.ui.bg_p1 },
 			-- harpoon tabline
-			HarpoonActive = { bg = theme.syn.fun, fg = theme.ui.bg_m3 },
-			HarpoonInactive = { bg = theme.diff.change, fg = theme.syn.fun },
-			HarpoonNumberActive = { bg = theme.syn.fun, fg = theme.ui.bg_m3 },
-			HarpoonNumberInactive = { bg = theme.diff.change, fg = theme.syn.fun },
+			HarpoonActive = { bg = theme.syn.fun, fg = theme.ui.bg_m3, bold = true },
+			HarpoonInactive = { bg = theme.ui.bg_p1, fg = theme.fg_dim },
+			HarpoonNumberActive = { bg = theme.syn.fun, fg = theme.ui.bg_m3, bold = true },
+			HarpoonNumberInactive = { bg = theme.ui.bg_p1, fg = theme.fg_dim },
 		}
 	end,
 })
 
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme("catppuccin")
