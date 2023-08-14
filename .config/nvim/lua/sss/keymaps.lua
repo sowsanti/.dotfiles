@@ -6,7 +6,6 @@ vim.keymap.set("n", "<leader>sx", "<c-w>c", { desc = "Close split" })
 vim.keymap.set("n", "<leader>sm", "<cmd>MaximizerToggle<cr>", { desc = "Maximize current spli" })
 -- theme toggle
 vim.keymap.set("n", "<leader>tt", function()
-	print(vim.api.nvim_get_option("background"))
 	if vim.api.nvim_get_option("background") == "dark" then
 		vim.opt.background = "light"
 	else
