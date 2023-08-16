@@ -284,6 +284,10 @@ require("lazy").setup({
 			-- refer to the configuration section below
 		},
 	},
+	"kyazdani42/nvim-web-devicons",
+	-- TODO: Decide between those 2
+	"kevinhwang91/rnvimr",
+	"tamago324/lir.nvim",
 }, {})
 
 -- [[ Setting options ]]

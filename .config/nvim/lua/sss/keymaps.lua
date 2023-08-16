@@ -1,9 +1,12 @@
-vim.keymap.set("n", "<leader>fv", "<cmd>Ex<cr>", { desc = "Open file explorer" })
+vim.keymap.set("n", "<leader>fv", function()
+	require("lir.float").toggle()
+end, { desc = "Open file explorer" })
 vim.keymap.set("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "Clear highlights" })
 vim.keymap.set("n", "<leader>s|", "<c-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>s-", "<c-w>s", { desc = "Split window horizontally" })
 vim.keymap.set("n", "<leader>sx", "<c-w>c", { desc = "Close split" })
 vim.keymap.set("n", "<leader>sm", "<cmd>MaximizerToggle<cr>", { desc = "Maximize current spli" })
+vim.keymap.set("n", "<leader>nl", "<cmd>Noice last<cr>", { desc = "Last message" })
 -- theme toggle
 vim.keymap.set("n", "<leader>tt", function()
 	if vim.api.nvim_get_option("background") == "dark" then
